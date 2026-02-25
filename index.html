@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-clock"></i> Circular Timer</h1>
+            <p class="subtitle">Set your own maximum time and watch it count up</p>
+        </header>
+
+        <main>
+            <!-- Timer Settings Section -->
+            <div class="settings-section">
+                <h2><i class="fas fa-cog"></i> Set Maximum Time</h2>
+                <div class="time-inputs">
+                    <div class="input-group">
+                        <label for="hours">Hours</label>
+                        <input type="number" id="hours" min="0" max="23" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="minutes">Minutes</label>
+                        <input type="number" id="minutes" min="0" max="59" value="7">
+                    </div>
+                    <div class="input-group">
+                        <label for="seconds">Seconds</label>
+                        <input type="number" id="seconds" min="0" max="59" value="15">
+                    </div>
+                </div>
+                <button id="setTimeBtn" class="btn set-btn">
+                    <i class="fas fa-check-circle"></i> Set Maximum Time
+                </button>
+                <p class="instruction">Timer will automatically stop when maximum time is reached.</p>
+            </div>
+
+            <!-- Timer Display Section -->
+            <div class="timer-section">
+                <!-- Circular Timer Container -->
+                <div class="circle-container">
+                    <!-- Outer circle for the progress ring -->
+                    <svg class="progress-ring" width="300" height="300">
+                        <!-- Background circle -->
+                        <circle class="progress-ring-bg" cx="150" cy="150" r="130"></circle>
+                        <!-- Progress circle that animates -->
+                        <circle class="progress-ring-fill" cx="150" cy="150" r="130"></circle>
+                    </svg>
+                    
+                    <!-- Time Display inside the circle -->
+                    <div class="time-display">
+                        <div id="timer" class="timer-text">00:00:00</div>
+                        <div class="timer-label">HOURS : MIN : SEC</div>
+                        <div id="max-time-display" class="max-time">Max: 07:15:00</div>
+                    </div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="controls">
+                    <button id="startBtn" class="btn start-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="pauseBtn" class="btn pause-btn" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="resetBtn" class="btn reset-btn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Circular Timer &copy; <span id="currentYear"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
